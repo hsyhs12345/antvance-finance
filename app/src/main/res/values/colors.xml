@@ -1,0 +1,11 @@
+<resources>
+    <color name="black">#05070B</color>
+    <color name="panel">#11151D</color>
+    <color name="panel2">#171C25</color>
+    <color name="white">#F5F7FA</color>
+    <color name="muted">#8F98A8</color>
+    <color name="red">#FF3B45</color>
+    <color name="green">#46D69B</color>
+    <color name="orange">#F2B84B</color>
+    <color name="line">#29303C</color>
+</resources>
