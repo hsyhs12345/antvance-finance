@@ -15,4 +15,17 @@ configurations.configureEach {
 dependencies {
     implementation 'androidx.biometric:biometric:1.1.0'
     implementation 'androidx.core:core:1.15.0'
+    implementation 'androidx.fragment:fragment:1.8.9'
+}
+
+// BiometricPrompt 1.1.0 requires FragmentActivity. The existing Java source
+// was authored against Activity, so normalize the declaration before Java compilation.
+tasks.named('preBuild').configure {
+    doLast {
+        def src = file('src/main/java/com/antvance/finance/MainActivity.java')
+        def text = src.getText('UTF-8')
+        text = text.replace('import androidx.core.content.ContextCompat;', 'import androidx.core.content.ContextCompat;\nimport androidx.fragment.app.FragmentActivity;')
+        text = text.replace('public class MainActivity extends Activity {', 'public class MainActivity extends FragmentActivity {')
+        src.write(text, 'UTF-8')
+    }
 }
